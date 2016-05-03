@@ -1,0 +1,493 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Sky 官方论坛</title>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="generator" content="phpwind v9.0.1 20141124"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <link rel="stylesheet" href="http://www.phpwind.net/themes/site/link2015/css/dev/core.css?v=20141124"/>
+    <link rel="stylesheet" href="http://www.phpwind.net/themes/site/link2015/css/dev/style.css?v=20141124"/>
+    <link rel="stylesheet" href="http://www.phpwind.net/themes/site/link2015/css/dev/widthauto.css?v=20141124"/>
+    <!-- <base id="headbase" href="http://www.phpwind.net/" /> -->
+    <style>.main .thread_posts_list .st {
+        font-size: 14px;
+    }</style>
+    <script>
+        //全局变量 Global Variables
+        var GV = {
+            JS_ROOT: 'http://bbs.115la.cn/res/js/dev/',										//js目录
+            JS_VERSION: '20141223',											//js版本号(不能带空格)
+            JS_EXTRES: 'http://bbs.115la.cn/themes/extres',
+            TOKEN: '88f2f2916c1f0ae5',	//token $.ajaxSetup data
+            U_CENTER: 'http://bbs.115la.cn/index.php?m=space',		//用户空间(参数 : uid)
+            U_AVATAR_DEF: 'http://bbs.115la.cn/res/images/face/face_small.jpg',					//默认小头像
+            U_ID: parseInt('0'),									//uid
+            REGION_CONFIG: '',														//地区数据
+            CREDIT_REWARD_JUDGE: '',			//是否积分奖励，空值:false, 1:true
+            URL: {
+                LOGIN: 'http://bbs.115la.cn/index.php?m=u&c=login',										//登录地址
+                QUICK_LOGIN: 'http://bbs.115la.cn/index.php?m=u&c=login&a=fast',								//快速登录
+                IMAGE_RES: 'http://bbs.115la.cn/res/images',										//图片目录
+                CHECK_IMG: 'http://bbs.115la.cn/index.php?m=u&c=login&a=showverify',							//验证码图片url，global.js引用
+                VARIFY: 'http://bbs.115la.cn/index.php?m=verify&a=get',									//验证码html
+                VARIFY_CHECK: 'http://bbs.115la.cn/index.php?m=verify&a=check',							//验证码html
+                HEAD_MSG: {
+                    LIST: 'http://bbs.115la.cn/index.php?m=message&c=notice&a=minilist'							//头部消息_列表
+                },
+                USER_CARD: 'http://bbs.115la.cn/index.php?m=space&c=card',								//小名片(参数 : uid)
+                LIKE_FORWARDING: 'http://bbs.115la.cn/index.php?c=post&a=doreply',							//喜欢转发(参数 : fid)
+                REGION: 'http://bbs.115la.cn/index.php?m=misc&c=webData&a=area',									//地区数据
+                SCHOOL: 'http://bbs.115la.cn/index.php?m=misc&c=webData&a=school',								//学校数据
+                EMOTIONS: "http://bbs.115la.cn/index.php?m=emotion&type=bbs",					//表情数据
+                CRON_AJAX: '',											//计划任务 后端输出执行
+                FORUM_LIST: 'http://bbs.115la.cn/index.php?c=forum&a=list',								//版块列表数据
+                CREDIT_REWARD_DATA: 'http://bbs.115la.cn/index.php?m=u&a=showcredit',					//积分奖励 数据
+                AT_URL: 'http://bbs.115la.cn/index.php?c=remind',									//@好友列表接口
+                TOPIC_TYPIC: 'http://bbs.115la.cn/index.php?c=forum&a=topictype'							//主题分类
+            }
+        };
+    </script>
+    <script src="http://www.phpwind.net/res/js/dev/wind.js?v=20141124"></script>
+    <link href="http://www.phpwind.net/themes/site/link2015/css/dev/register.css?v=20141124" rel="stylesheet"/>
+
+</head>
+<body>
+<div class="wrap">
+    <header class="header_wrap">
+        <div class="head">
+            <div id="J_header" class="cc header">
+                <div class="logo">
+                    <a href="http://www.phpwind.net/">
+                        <!--后台logo上传-->
+                        <img src="img/logo.png" alt="sky辅助官方论坛">
+                    </a>
+                </div>
+                <nav class="nav_wrap">
+                    <div class="nav">
+                        <ul>
+                            <li class="current"><a href="index.html">首页</a></li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="header_login">
+                    <a rel="nofollow" href="denglu.html" class="mr15">登录</a>
+                    <a rel="nofollow" href="zhuce.html">注册</a>
+                </div>
+                <div class="header_search" role="search">
+                    <form action="http://www.phpwind.net/index.php?m=search&c=s" method="post">
+                        <button class="search-btn" type="submit" aria-label="搜索">搜索</button>
+                        <input class="search-txt" type="text" id="s" aria-label="搜索关键词" accesskey="s"
+                               placeholder="搜索其实很简单" x-webkit-speech speech name="keyword"/>
+                        <input type="hidden" name="csrf_token" value="0bb7e87cdc4460a2"/></form>
+                </div>
+                <a class="header_login_btn search-magnify" href="#"><span class="header_search_btn">搜索</span></a>
+                <script src="http://www.phpwind.net/res/js/dev/jquery.js"></script>
+                <script>
+
+                    $(function () {
+
+                        jQuery(".search-magnify").click(function (event) {
+
+                            jQuery(this).hide();
+                            jQuery(".search-txt").focus();
+                            jQuery(".header_search").animate({
+                                        width: "240px"
+                                    },
+                                    200, function () {
+                                    });
+
+                            return false;
+                        });
+
+                        jQuery('body').click(function (e) {
+                            if (!$(e.target).is('.header_search,.search-txt,.search-btn')) {
+
+                                jQuery(".header_search").animate({
+                                            width: 0
+                                        },
+                                        100, function () {
+                                        });
+
+                                jQuery(".search-magnify").show();
+                            }
+                        });
+
+                    })
+
+
+                </script>
+            </div>
+        </div>
+    </header>
+    <div class="tac"></div>
+    <div class="main_wrap">
+        <div class="box_wrap register cc">
+            <h2 class="reg_head">欢迎注册成为 sky 官方论坛 会员</h2>
+            <div class="reg_cont_wrap">
+                <div class="reg_cont">
+                    <form id="J_register_form" action="http://www.phpwind.net/index.php?m=u&c=register&a=dorun"
+                          method="POST">
+                        <div class="reg_form">
+
+
+                            <dl>
+                                <dt><label for="J_reg_username">用户名：</label></dt>
+                                <dd><span class="must_red">*</span><input aria-required="true" id="J_reg_username"
+                                                                          data-id="username" name="username" type="text"
+                                                                          class="input length_4 J_reg_input" value="">
+                                </dd>
+                                <dd class="dd_r" id="J_reg_tip_username" role="tooltip" aria-hidden="true"></dd>
+                            </dl>
+                            <dl>
+                                <dt><label for="J_reg_password">密码：</label></dt>
+                                <dd><span class="must_red">*</span><input aria-required="true" id="J_reg_password"
+                                                                          data-id="password" name="password"
+                                                                          type="password" class="input length_4"
+                                                                          value=""></dd>
+                                <dd class="dd_r" id="J_reg_tip_password" role="tooltip" aria-hidden="true"></dd>
+                            </dl>
+                            <dl>
+                                <dt><label for="J_reg_repassword">确认密码：</label></dt>
+                                <dd><span class="must_red">*</span><input aria-required="true" id="J_reg_repassword"
+                                                                          data-id="repassword" name="repassword"
+                                                                          type="password" class="input length_4"
+                                                                          value=""></dd>
+                                <dd class="dd_r" id="J_reg_tip_repassword" role="tooltip" aria-hidden="true"></dd>
+                            </dl>
+                            <dl>
+                                <dt><label for="J_reg_email">电子邮箱：</label></dt>
+                                <dd>
+                                    <div id="J_email_list" class="fl mail_down" style="display:;margin-top:27px;"></div>
+                                    <span class="must_red">*</span><input aria-required="true" autocomplete="off"
+                                                                          id="J_reg_email" data-id="email" name="email"
+                                                                          type="text" class="input length_4" value="">
+                                </dd>
+                                <dd class="dd_r" id="J_reg_tip_email" role="tooltip" aria-hidden="true"></dd>
+                            </dl>
+
+                            <dl>
+                                <dt>&nbsp;</dt>
+                                <dd>
+                                    <button class="btn btn_big btn_submit mr20" type="submit">注册</button>
+                                </dd>
+                            </dl>
+                            <div class="agreements">
+
+                            </div>
+                        </div>
+                        <input type="hidden" name="csrf_token" value="0bb7e87cdc4460a2"/></form>
+                </div>
+            </div>
+            <div class="reg_side">
+                <div class="reg_side_cont">
+                    <p class="mb10">已经有帐号？</p>
+                    <p><a rel="nofollow"
+                          href="http://www.phpwind.net/index.php?m=u&c=login&backurl=http%3A%2F%2Fwww.phpwind.net%2F"
+                          class="btn btn_big">立即登录</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--.main-wrap,#main End-->
+    <div class="tac">
+        <br/>
+
+    </div>
+
+
+    <!--返回顶部-->
+    <a href="#" rel="nofollow" role="button" id="back_top" tabindex="-1">返回顶部</a>
+
+</div>
+<script>
+    Wind.use('jquery', 'global', 'validate', 'emailAutoMatch', function () {
+
+        /*
+         * 更换验证码
+         */
+        var reg_code = $('#J_reg_code');
+        Wind.Util.getVerifyTemp({
+            wrap: $('#J_register_verify'),
+            afterClick: function () {
+                $('#J_reg_tip_code').html('');
+                reg_code.val('');
+            }
+        });
+
+        //聚焦时默认提示
+        var focus_tips = {
+            invitecode: '本站开启邀请注册，请填写邀请码',
+            username: '4-10位，不能有空格,支持中文、字母、数字、下划线和小数点',
+            password: '最小长度6个字，最大长度15个字；必须包含：小写字母、不能和用户名相同',
+            repassword: '请再输入一遍您上面填写的密码',
+            email: '请填写真实的电子邮箱',
+            regreason: '注册原因是管理员判断是否审核通过的主要参考依据',
+            mobileCode: '请填写收到的手机验证码',
+            qq: '',
+            msn: '',
+            aliww: '',
+            code: ''
+        };
+
+        //密码强度
+        var passwordRank = {
+            1: '<span class="pwd_strength_1"></span>弱',
+            2: '<span class="pwd_strength_2"></span>弱',
+            3: '<span class="pwd_strength_3"></span>中',
+            4: '<span class="pwd_strength_4"></span>强'
+        };
+
+        var register_form = $("#J_register_form"),
+                reg_username = $('#J_reg_username'),						//用户名表单
+                reg_password = $('#J_reg_password'),						//密码表单
+                reg_tip_password = $('#J_reg_tip_password');		//密码提示区
+
+        //validate插件修改了remote ajax验证返回的response处理方式；增加密码强度提示 passwordRank
+        register_form.validate({
+            //debug : true,
+            errorPlacement: function (error, element) {
+                //错误提示容器
+                $('#J_reg_tip_' + element[0].name).html(error);
+            },
+            errorElement: 'span',
+            errorClass: 'tips_icon_error',
+            validClass: 'tips_icon_success',
+            onkeyup: false,
+            focusInvalid: false,
+            rules: {
+                invitecode: {
+                    required: true,
+                    remote: {
+                        url: "http://bbs.115la.cn/index.php?m=u&c=register&a=checkInvitecode",
+                        type: 'post',
+                        dataType: "json",
+                        data: {
+                            invitecode: function () {
+                                return $("#J_reg_invitecode").val();
+                            }
+                        }
+                    }
+                },
+                username: {
+                    required: true,
+                    remote: {
+                        url: "http://bbs.115la.cn/index.php?m=u&c=register&a=checkusername",
+                        type: 'post',
+                        dataType: "json",
+                        data: {
+                            username: function () {
+                                return $("#J_reg_username").val();
+                            }
+                        }
+                        //返回的信息就是messagesss
+                    }
+                },
+                password: {
+                    required: true,
+                    remote: {
+                        url: 'http://bbs.115la.cn/index.php?m=u&c=register&a=checkpwd',		//验证密码
+                        dataType: "json",
+                        type: 'post',
+                        data: {
+                            username: function () {
+                                return reg_username.val();
+                            },
+                            pwd: function () {
+                                return reg_password.val();
+                            }
+                        }
+                    }
+                },
+                repassword: {
+                    required: true,
+                    equalTo: '#J_reg_password'
+                },
+                email: {
+                    required: true,
+                    email: true,
+                    remote: {
+                        url: "http://bbs.115la.cn/index.php?m=u&c=register&a=checkemail",
+                        dataType: "json",
+                        type: 'post',
+                        data: {
+                            email: function () {
+                                return $("#J_reg_email").val();
+                            }
+                        }
+                    }
+                },
+                regreason: {
+                    required: true,
+                    maxlength: 500
+                },
+                mobileCode: {
+                    required: true,
+                    remote: {
+                        url: 'http://bbs.115la.cn/index.php?m=u&c=mobile&a=checkmobilecode',		//验证手机验证码
+                        dataType: "json",
+                        type: 'post',
+                        data: {
+                            mobileCode: function () {
+                                return $('#J_reg_mobileCode').val();
+                            },
+                            mobile: function () {
+                                return $('#J_reg_mobile').val();
+                            }
+                        }
+                    }
+                },
+                qq: {
+                    required: true
+                },
+                msn: {
+                    required: true
+                },
+                aliww: {
+                    required: true
+                }/*,
+                 code : {
+                 required : true,
+                 remote : {
+                 url : "http://bbs.115la.cn/index.php?m=verify&a=check",
+                 dataType: "json",
+                 type : 'post',
+                 data : {
+                 code :  function(){
+                 return reg_code.val();
+                 }
+                 }
+                 }
+                 }
+                 */
+            },
+            highlight: false,
+            unhighlight: function (element, errorClass, validClass) {
+                var tip_elem = $('#J_reg_tip_' + element.name);
+                if (element.value) {
+                    tip_elem.html('<span class="' + validClass + '" data-text="text"><span>');
+                }
+            },
+            onfocusin: function (element) {
+                var id = element.name;
+                $('#J_reg_tip_' + id).html('<span class="reg_tips" data-text="text">' + focus_tips[id] + '</span>');
+                $(element).parents('dl').addClass('current');
+
+                if (id == 'password') {
+                    //密码则添加强度验证
+
+                    $(element).on('keyup', function (e) {
+
+                        //过滤tab键
+                        if (e.keyCode !== 9) {
+
+                            $.post('http://bbs.115la.cn/index.php?m=u&c=register&a=checkpwdStrong', {
+                                pwd: reg_password.val()
+                            }, function (data) {
+                                //已失焦，则显示强度
+                                if (reg_tip_password.data('blur')) {
+                                    return false;
+                                }
+                                if (data.state === 'success') {
+                                    reg_tip_password.html(passwordRank[data.message['rank']]);
+                                } else if (data.state === 'fail') {
+                                    reg_tip_password.html('');
+                                }
+                            }, 'json');
+
+                            //移除失焦标识
+                            reg_tip_password.removeData('blur');
+                        }
+
+                    });
+                }
+            },
+            onfocusout: function (element) {
+                var _this = this;
+                $(element).parents('dl').removeClass('current');
+
+                if (element.name === 'email') {
+                    //邮箱匹配点击后，延时处理
+                    setTimeout(function () {
+                        element.value = $.trim(element.value);
+                        _this.element(element);
+                    }, 150);
+                } else {
+
+                    if (element.name === 'password') {
+                        //防止重复绑定
+                        $(element).off('keyup');
+
+                        //失焦标识
+                        reg_tip_password.data('blur', 'blur');
+                    }
+                    _this.element(element);
+
+                }
+
+            },
+            messages: {
+                invitecode: {
+                    required: '邀请码不能为空'
+                },
+                username: {
+                    required: '用户名不能为空',
+                    remote: '用户名已存在' //ajax验证默认提示
+                },
+                password: {
+                    required: '密码不能为空',
+                    remote: '密码不合要求' //ajax验证默认提示
+                },
+                repassword: {
+                    required: '确认密码不能为空',
+                    equalTo: '两次输入的密码不一致。请重新输入'
+                },
+                email: {
+                    required: '邮箱不能为空',
+                    email: '请输入正确的电子邮箱地址',
+                    remote: '该电子邮箱已被注册，请更换别邮箱' //ajax验证默认提示
+                },
+                regreason: {
+                    required: '注册原因不能为空',
+                    maxlength: '注册原因描述内容过长，不能超过500字'
+                },
+                mobileCode: {
+                    required: '手机验证码不能为空'
+                },
+                qq: {
+                    required: 'QQ不能为空'
+                },
+                msn: {
+                    required: 'MSN不能为空'
+                },
+                aliww: {
+                    required: '阿里旺旺不能为空'
+                },
+                code: {
+                    required: '验证码不能为空',
+                    remote: '验证码不正确或已过期' //ajax验证默认提示
+                }
+            }
+        });
+
+
+        //邮箱后缀匹配
+        $('#J_reg_email').emailAutoMatch();
+
+        //注册协议
+        $('#J_agreements_btn').on('click', function (e) {
+            e.preventDefault();
+            $('#J_agreements_content').toggle();
+        });
+
+        register_form.find('dl:first input:text:visible').focus().parents('dl').addClass('current');
+
+
+    });
+</script>
+
+
+</body>
+
+</html>

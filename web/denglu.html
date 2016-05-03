@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>sky_pang论坛</title>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="generator" content="phpwind v9.0.1 20141124"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <link rel="stylesheet" href="http://www.phpwind.net/themes/site/link2015/css/dev/core.css?v=20141124"/>
+    <link rel="stylesheet" href="http://www.phpwind.net/themes/site/link2015/css/dev/style.css?v=20141124"/>
+    <link rel="stylesheet" href="http://www.phpwind.net/themes/site/link2015/css/dev/widthauto.css?v=20141124"/>
+    <!-- <base id="headbase" href="http://www.phpwind.net/" /> -->
+    <style>.main .thread_posts_list .st {
+        font-size: 14px;
+    }</style>
+    <script>
+        //全局变量 Global Variables
+    </script>
+    <script src="http://www.phpwind.net/res/js/dev/wind.js?v=20141124"></script>
+    <link href="http://www.phpwind.net/themes/site/link2015/css/dev/register.css?v=20141124" rel="stylesheet"/>
+    <script type="text/javascript"
+            src="scripts/jquery.min.js">
+    </script>
+    <script type="text/javascript"
+            src="scripts/login.js">
+    </script>
+    <script type="text/javascript"
+            src="scripts/cookie_util.js">
+    </script>
+</head>
+<body>
+<div class="wrap">
+    <header class="header_wrap">
+        <div class="head">
+            <div id="J_header" class="cc header">
+                <div class="logo">
+                    <a href="http://www.phpwind.net/">
+                        <!--后台logo上传-->
+                        <img src="img/logo.png" alt="sky辅助官方论坛">
+                    </a>
+                </div>
+                <nav class="nav_wrap">
+                    <div class="nav">
+                        <ul>
+                            <li class="current"><a href="index.html">首页</a></li>
+
+                        </ul>
+                    </div>
+                </nav>
+                <div class="header_login" >
+                    <a rel="nofollow" href="denglu.html" class="mr15">登录</a>
+                    <a rel="nofollow" href="zhuce.html">注册</a>
+                </div>
+                <div class="header_search" role="search" >
+                    <form action="http://www.phpwind.net/index.php?m=search&c=s" method="post">
+                        <button class="search-btn" type="submit" aria-label="搜索">搜索</button>
+                        <input class="search-txt" type="text" id="s" aria-label="搜索关键词" accesskey="s"
+                               placeholder="搜索其实很简单" x-webkit-speech speech name="keyword"/>
+                        <input type="hidden" name="csrf_token" value="0bb7e87cdc4460a2"/></form>
+                </div>
+                <a class="header_login_btn search-magnify" href="#"><span class="header_search_btn">搜索</span></a>
+                <script src="http://www.phpwind.net/res/js/dev/jquery.js"></script>
+                <script>
+
+                    $(function () {
+
+                        jQuery(".search-magnify").click(function (event) {
+
+                            jQuery(this).hide();
+                            jQuery(".search-txt").focus();
+                            jQuery(".header_search").animate({
+                                        width: "240px"
+                                    },
+                                    200, function () {
+                                    });
+
+                            return false;
+                        });
+
+                        jQuery('body').click(function (e) {
+                            if (!$(e.target).is('.header_search,.search-txt,.search-btn')) {
+
+                                jQuery(".header_search").animate({
+                                            width: 0
+                                        },
+                                        100, function () {
+                                        });
+
+                                jQuery(".search-magnify").show();
+                            }
+                        });
+
+                    })
+
+
+                </script>
+            </div>
+        </div>
+    </header>
+    <div class="tac"></div>
+    <div class="main_wrap">
+        <div class="box_wrap register cc">
+            <h2 class="reg_head">登录</h2>
+            <div class="reg_cont_wrap">
+                <div class="reg_cont">
+
+                        <div class="reg_form">
+                            <div class="tips"><span class="tips_icon">请登录后再继续浏览</span></div>
+                            <dl class="cc">
+                                <dt><label for="J_u_login_username">帐号：</label></dt>
+                                <dd><input id="J_u_login_username" data-id="username" name="username" type="text"
+                                           class="input length_4" aria-required="true" value=""></dd>
+                                <dd id="J_u_login_tip_username" role="tooltip" aria-hidden="true" class="dd_r"></dd>
+                            </dl>
+                            <dl class="cc">
+                                <dt><label for="J_u_login_password">密码：</label></dt>
+                                <dd><input id="J_u_login_password" data-id="password" name="password" type="password"
+                                           aria-required="true" class="input length_4" value=""></dd>
+                                <dd class="dd_r">
+                                    <span id="J_u_login_tip_password" role="tooltip" aria-hidden="true"></span>
+                                </dd>
+                            </dl>
+                            <div id="J_login_qa" style="display:none;"></div>
+
+                            <dl class="cc pick">
+                                <dt>&nbsp;</dt>
+                                <dd><a rel="nofollow" href="http://www.phpwind.net/index.php?m=u&c=findPwd"
+                                       class="fr mr10">找回密码</a><input name="rememberme" value="31536000" type="checkbox"
+                                                                      class="checkbox" id="cktime"><label for="cktime">自动登录</label>
+                                </dd>
+                            </dl>
+                            <dl class="cc">
+                                <dt>&nbsp;</dt>
+                                <dd>
+                                    <button class="btn btn_big btn_submit mr20" id="login">登录</button>
+                                    <input type="hidden" name="backurl" value="http://www.phpwind.net/">
+                                    <input type="hidden" name="invite" value=""/>
+                                </dd>
+                            </dl>
+                        </div>
+                        <input type="hidden" name="csrf_token" value="0bb7e87cdc4460a2"/>
+                </div>
+            </div>
+            <div class="reg_side">
+                <div class="reg_side_cont">
+                    <p class="mb10">还没有帐号？</p>
+                    <p class="mb20"><a rel="nofollow" href="http://www.phpwind.net/index.php?m=u&c=register"
+                                       class="btn btn_big">免费注册</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--.main-wrap,#main End-->
+    <div class="tac">
+        <br/>
+
+    </div>
+    <div class="footer_wrap">
+        <div class="footer">
+            <pw-drag id="footer_segment"/>
+            <div class="bottom">
+                <a href="http://phpwind.com/about.html">关于phpwind</a><a href="http://phpwind.com/about.html">联系我们</a><a
+                    href="http://www.phpwind.net/thread-htm-fid-54.html">问题反馈</a><a
+                    href="http://phpwind.com/contact.html">程序建议</a><a href="http://www.aliyun.com/" target="_blank">阿里云官方网站</a><a
+                    href="http://weibo.com/phpwind" target="_blank">官方微博</a></div>
+            <p>Powered by <a href="http://www.phpwind.net/" target="_blank" rel="nofollow">phpwind v9.0.1</a> &copy;2003-2015
+                <a href="http://www.phpwind.com" target="_blank" rel="nofollow">phpwind.com</a> <a
+                        href="http://www.miitbeian.gov.cn" target="_blank" rel="nofollow">浙B2-20070029</a></p>
+            <p>
+                <script src='http://w.cnzz.com/c.php?id=30051218' language='JavaScript'></script>
+            </p>
+        </div>
+
+        <div id="cloudwind_common_bottom"></div>
+    </div>
+
+    <!--返回顶部-->
+    <a href="#" rel="nofollow" role="button" id="back_top" tabindex="-1">返回顶部</a>
+
+</div>
+
+</body>
+</html>

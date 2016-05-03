@@ -1,0 +1,245 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Sky 官方论坛</title>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="generator" content="phpwind v9.0.1 20141124"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
+    <link rel="stylesheet" href="http://www.phpwind.net/themes/site/link2015/css/dev/core.css?v=20141124"/>
+    <link rel="stylesheet" href="style/style1.css"/>
+    <link rel="stylesheet" href="http://www.phpwind.net/themes/site/link2015/css/dev/widthauto.css?v=20141124"/>
+    <!-- <base id="headbase" href="http://www.phpwind.net/" /> -->
+    <style>.main .thread_posts_list .st {
+        font-size: 14px;
+    }</style>
+    <script>
+        //全局变量 Global Variables
+    </script>
+    <script src="http://www.phpwind.net/res/js/dev/wind.js?v=20141124"></script>
+    <script type="text/javascript"
+            src="scripts/jquery.min.js">
+    </script>
+    <script type="text/javascript"
+            src="scripts/bkxx.js">
+    </script>
+    <link href="http://www.phpwind.net/themes/site/link2015/css/dev/forum.css?v=20141124" rel="stylesheet"/>
+</head>
+<body>
+<style type="text/css">
+</style>
+<div class="wrap">
+    <header class="header_wrap">
+        <div class="head">
+            <div id="J_header" class="cc header">
+                <div class="logo">
+                    <a href="http://www.phpwind.net/">
+                        <!--后台logo上传-->
+                        <img src="img/logo.png" alt="sky辅助官方论坛">
+                    </a>
+                </div>
+                <nav class="nav_wrap">
+                    <div class="nav">
+                        <ul>
+                            <!--论坛头部 current 显示-->
+                            <li class="current"><a href="asd.html">首页</a></li>
+                        </ul>
+                    </div>
+                </nav>
+                <!--登录判断-->
+                <div class="header_login" style="display:none;">
+                    <!--登陆和注册-->
+                    <a rel="nofollow" href="denglu.html" class="mr15">登录</a>
+                    <a rel="nofollow" href="zhuce.html">注册</a>
+                </div>
+                <div class="header_login_later">
+                    <a aria-haspopup="J_head_user_menu" aria-label="个人功能菜单,按pagedown打开菜单,tab键导航,esc键关闭" tabindex="0"
+                       rel="nofollow" href="http://bbs.115la.cn/index.php?m=space&uid=315" id="J_head_user_a"
+                       class="username" title="sky_pang">sky_pa...<em class="core_arrow"></em></a>
+
+                </div>
+
+                <div class="header_search" role="search">
+                    <form action="http://www.phpwind.net/index.php?m=search&c=s" method="post">
+                        <button class="search-btn" type="submit" aria-label="搜索">搜索</button>
+                        <input class="search-txt" type="text" id="s" aria-label="搜索关键词" accesskey="s"
+                               placeholder="搜索其实很简单" x-webkit-speech speech name="keyword"/>
+                        <input type="hidden" name="csrf_token" value="ba4f5340585fd745"/><input type="hidden"
+                                                                                                name="csrf_token"
+                                                                                                value="ba4f5340585fd745"/>
+                    </form>
+                </div>
+                <a class="header_login_btn search-magnify" href="#"><span class="header_search_btn">搜索</span></a>
+
+
+                <script src="http://www.phpwind.net/res/js/dev/jquery.js"></script>
+                <script>
+
+                    $(function () {
+
+                        jQuery(".search-magnify").click(function (event) {
+
+                            jQuery(this).hide();
+                            jQuery(".search-txt").focus();
+                            jQuery(".header_search").animate({
+                                        width: "240px"
+                                    },
+                                    200, function () {
+                                    });
+
+                            return false;
+                        });
+
+                        jQuery('body').click(function (e) {
+                            if (!$(e.target).is('.header_search,.search-txt,.search-btn')) {
+
+                                jQuery(".header_search").animate({
+                                            width: 0
+                                        },
+                                        100, function () {
+                                        });
+
+                                jQuery(".search-magnify").show();
+                            }
+                        });
+
+                    })
+
+
+                </script>
+            </div>
+        </div>
+    </header>
+    <div class="tac"></div>
+    <div class="main_wrap">
+        <!--广告位置 已删除">
+        <!--div class="bread_crumb">
+                    </div-->
+        <div class="forum_page">
+            <div class="bbs_info_box">
+                <!--这里可以addspan元素 在class处设置ID -->
+                <span>今日：0</span><i></i><span>昨日：0</span><i></i><span>最高日：0</span><i></i><span>帖子：0</span><i></i><span>会员：1</span><i></i><span>新会员：<a
+                    href="http://www.phpwind.net/index.php?m=space&username=ranran88"
+                    target="_blank">admin</a></span>
+            </div>
+            <!--这里添加论坛动态 js负责切换 网页效果 这里只保留一个 -->
+            <div role="structure_ttsgfp" data-lcm="tab"
+                 class="box_wrap design_layout_style J_mod_layout_none J_tab_wrap" id="ttsgfp">
+                <div role="titlebar" class="design_layout_hd design_layout_tab cc J_layout_hd" style="">
+                    <ul class="J_tabs_nav" role="tablist">
+                        <!--这里改为显示成论坛新帖-->
+                        <li role="tab" class="current"><a data-id="tab_1" href=""
+                                                          style="font-size: 12px;color: #0F0F0F;font-weight:bold;">新鲜出炉</a>
+                        </li>
+                        <!--li role="tab" class=""><a data-id="tab_2" href="" style="font-size: 12px;color: #ff0000;font-weight:bold;">版主团队</a></-->
+
+                    </ul>
+                </div>
+
+                <div class="J_tabs_ct">
+                    <div class="design_layout_ct J_tabct_tab_1 J_layout_item" tabid="tab_1" role="tabpanel"
+                         aria-hidden="false" style="">
+                        <div role="structure_chgxwh" data-lcm="1_1"
+                             class="box_wrap design_layout_style J_mod_layout_none design_layout_1_1" id="chgxwh">
+                            <h2 role="titlebar" class="design_layout_hd cc J_layout_hd" style="display: none;">
+                                <span>1:1</span></h2>
+                            <div class="design_layout_ct">
+                                <div class="design_layout_1_1_left J_layout_item">
+                                    <div id="J_mod_178" style="" data-id="178" data-model="thread"
+                                         class="mod_box J_mod_box">
+                                        <div class="tmode_list">
+                                            <!--这里可以给ul添加ID js发ajax获取10条数据 添加到li	-->
+                                            <!--只保留一条参考-->
+                                            <!--实体类 帖子ID 板块ID 帖子标题-->
+                                            <!--建表设计 应为 帖子表 帖子ID 用户ID 回复ID 板块ID 帖子标题 帖子内容 发帖时间 帖子查看数 帖子回复数-->
+                                            <!--建表设计 应为 回复表 回复ID 用户ID 帖子ID 板块ID  回复内容 回复时间 关联板块ID 主要用于 查询板块共有多少回复 最新回复时间 -->
+                                            <!--建表设计 应为 板块表 板块ID 用户ID 帖子ID 回复ID  板块分类 板块标题  -->
+                                            <ul>
+                                                <li><a href="http://www.phpwind.net/thread/161">[程序发布]</a>&nbsp;<a
+                                                        href="http://www.phpwind.net/read/3418959" target="_blank"
+                                                        target="_blank"><span style="font-weight:bold;color:#ff0000">sky_pang天龙助手v1.0正式发布</span></a>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="design_layout_1_1_right J_layout_item">
+                                    <div id="J_mod_179" style="" data-id="179" data-model="thread"
+                                         class="mod_box J_mod_box">
+                                        <div class="tmode_list">
+                                            <!--这里可以给ul添加ID js发ajax获取10条数据 后台执行SQL取最新发布的10-20条信息 SQL写成子查询取最后的20个帖子 然后过滤10贴 -->
+                                            <!--板块链接=链接+get传参 跳转 jsp页面显示当前穿进来的ID板块过滤非法SQL请求 SQL关联表查询 板块.板块ID=帖子.板块ID-->
+                                            <!--只保留一条参考-->
+                                            <ul>
+                                                <li><a href="">[官方公告]</a>&nbsp;<a
+                                                        href="http://market.aliyun.com/products/55586021/cmjz000552.html?spm=5176.9000004.0.0.kAAskg"
+                                                        target="_blank" target="_blank">sky论坛开张了</a></li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--一下为板块内容-->
+
+            <div class="box_wrap" id="bkxx">
+                <div class="forum_group">
+                    <div class="box_title">
+                        <div class="fr">
+                            分栏版主：
+                            <a class="J_user_card_show" data-username="admin" href="">admin</a>
+                        </div>
+                        <h2 class="cname"><a href="http://www.phpwind.net/thread/1">sky辅助 公告区</a></h2>
+                    </div>
+
+                    <div class="ct">
+                        <table width="100%" summary="横排版块排序">
+                            <tr>
+                                <th class="old">
+                                    <h3 class="fname"><a href="http://www.phpwind.net/thread/78"><font
+                                            color=blue>官方公告</font></a></h3>
+                                    主题：0，回复：0<br>
+                                    最后回复：<a href="http://www.phpwind.net/read/3708877/e#a" rel="nofollow"><span
+                                        class="time">04-22 18:36</span></a></th>
+                                <th class="old">
+                                    <h3 class="fname"><a href="http://www.phpwind.net/thread/78"><font
+                                            color=blue>程序发布</font></a></h3>
+                                    主题：0，回复：0<br>
+                                    最后回复：<a href="http://www.phpwind.net/read/3708877/e#a" rel="nofollow"><span
+                                        class="time">04-22 18:36</span></a></th>
+
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!--.main-wrap,#main End-->
+    <div class="tac">
+        <br/>
+
+    </div>
+
+
+    <!--返回顶部-->
+    <a href="#" rel="nofollow" role="button" id="back_top" tabindex="-1">返回顶部</a>
+
+</div>
+<script>
+    Wind.use('jquery', 'global', function () {
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.sky.dao.PlateDao">
+    <select id="findByBkALL"  resultType="org.sky.entity.bk">
+	SELECT
+bk.bid,
+bk.bname,
+bk.bclass,
+username.uname,
+bk.uid
+FROM
+username ,
+bk
+WHERE
+username.uid = bk.uid
+
+
+    </select>
+    <select id="findByPlateALL"  resultType="org.sky.entity.Plate">
+SELECT
+sector.sid,
+sector.bclass,
+sector.sname
+FROM
+sector
+
+    </select>
+
+</mapper>
